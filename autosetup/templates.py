@@ -16,6 +16,7 @@ setup(
     install_requires=[x.strip() for x in open('{requirements}').readlines()],
     url=BASE_CVS_URL,{download_url}
     test_suite='{tests_module}',
+    tests_require=[x.strip() for x in open('{tests_requirements}').readlines()],
     keywords=[],
     classifiers=[
         "Development Status :: 1 - Planning",

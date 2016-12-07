@@ -92,6 +92,10 @@ def _get_command_args():
     parser.add_argument('--cvs_url', dest='cvs_url', help="CVS (GitHub, Bitbucket) URL")
     parser.add_argument('--tests_module', dest='tests_module', help='Tests module [default: "tests"]')
     parser.add_argument('--requirements', dest='requirements', help='Requirements file [default: "requirements.txt"]')
+    parser.add_argument(
+        '--tests_requirements', dest='tests_requirements',
+        help='Tests requirements file [default: "requirements_test.txt"]'
+    )
     parser.add_argument('--readme', dest='readme', help='README file [default: "README.rst"]')
     parser.add_argument('--license', dest='license', default='', help='License ("MIT", "GPL2, "GPL3", or "OTHER")')
     parser.add_argument('--use-defaults', dest='use_defaults', action='store_true', default=False)

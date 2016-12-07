@@ -23,7 +23,7 @@ _LICENSE_CLASSIFIER_MAPPING = {
 
 def main(
     module_name=None, name=None, version=None, author_name=None, author_email=None,
-    cvs_url=None, tests_module=None, requirements=None, readme=None, license=None,
+    cvs_url=None, tests_module=None, requirements=None, tests_requirements=None, readme=None, license=None,
     use_defaults=None, overwrite_all=None, return_values=False
 
 ):
@@ -43,6 +43,9 @@ def main(
     cvs_url_initial = _first_set(cvs_url, args.cvs_url)
     tests_module_initial = _first_set(tests_module, args.tests_module, 'tests' if use_defaults else None)
     requirements_initial = _first_set(requirements, args.requirements, 'requirements.txt' if use_defaults else None)
+    tests_requirements_initial = _first_set(
+        tests_requirements, args.tests_requirements, 'requirements_test.txt' if use_defaults else None
+    )
     readme_initial = _first_set(readme, args.readme, 'README.rst' if use_defaults else None)
     license_initial = _first_set(license, args.license)
 
@@ -53,6 +56,9 @@ def main(
     cvs_url = _get_value('CVS (GitHub, Bitbucket) URL', initial=cvs_url_initial, validator=validators.validate_url)
     tests_module = _get_value('Tests module', initial=tests_module_initial, default='tests')
     requirements = _get_value('Requirements file', initial=requirements_initial, default='requirements.txt')
+    tests_requirements = _get_value(
+        'Tests requirements file', initial=tests_requirements_initial, default='requirements_test.txt'
+    )
     readme = _get_value('README file', initial=readme_initial, default='README.rst')
     license = _get_value('License', initial=license_initial, choices=('MIT', 'GPL2', 'GPL3', 'OTHER'))
 
@@ -65,6 +71,7 @@ def main(
         cvs_url=cvs_url,
         tests_module=tests_module,
         requirements=requirements,
+        tests_requirements=tests_requirements,
         readme=readme,
         license=license,
 
@@ -75,6 +82,9 @@ def main(
 
     requirements_content = '\n'
     _write_to_file(os.path.join(cwd, requirements), requirements_content, overwrite_all)
+
+    tests_requirements_content = '\n'
+    _write_to_file(os.path.join(cwd, tests_requirements), tests_requirements_content, overwrite_all)
 
     readme_content = name + '\n' + ('=' * len(name)) + '\n'
     _write_to_file(os.path.join(cwd, readme), readme_content, overwrite_all)

@@ -22,6 +22,7 @@ class MainTestCase(unittest.TestCase):
         self.arguments['cvs_url'] = 'http://bitbucket.org/waitman/supermodule1'
         self.arguments['tests_module'] = 'tests1'
         self.arguments['requirements'] = 'requirements1.txt'
+        self.arguments['tests_requirements'] = 'requirements_test.txt'
         self.arguments['readme'] = 'README1.rst'
         self.arguments['license'] = 'GPL3'
 
@@ -41,6 +42,7 @@ class MainTestCase(unittest.TestCase):
             cvs_url=None,
             tests_module=None,
             requirements=None,
+            tests_requirements=None,
             readme=None,
             license=None,
             use_defaults=False,
@@ -91,6 +93,7 @@ class MainTestCase(unittest.TestCase):
         self.assertEquals(result['cvs_url'], self.arguments['cvs_url'])
         self.assertEquals(result['tests_module'], self.arguments['tests_module'])
         self.assertEquals(result['requirements'], self.arguments['requirements'])
+        self.assertEquals(result['tests_requirements'], self.arguments['tests_requirements'])
         self.assertEquals(result['readme'], self.arguments['readme'])
         self.assertEquals(result['license'], self.arguments['license'])
 
@@ -155,6 +158,7 @@ class MainTestCase(unittest.TestCase):
             cvs_url='http://www.google.com',
             tests_module='whatever',
             requirements='requires.txt',
+            tests_requirements='requirements_test.txt',
             readme='RTFM',
             license='GPL3',
             use_defaults=False,
@@ -187,6 +191,7 @@ class MainTestCase(unittest.TestCase):
             cvs_url='http://www.google.com',
             tests_module='whatever',
             requirements='requires.txt',
+            tests_requirements='requirements_test.txt',
             readme='RTFM',
             license='GPL3',
             return_values=True
