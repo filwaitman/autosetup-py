@@ -1,7 +1,9 @@
+THIS PROJECT IS ARCHIVED AND UNMAINTAINED.
+Please use https://github.com/filwaitman/cookiecutter-lib instead.
+
+
 autosetup-py
 ============
-
-[Because every time I start preparing my projects for PyPI "deployment" I get upset.]
 
 setup.py (and relative files such as MANIFEST.in and setup.cfg) is not simple for the first (second, third) time.
 
